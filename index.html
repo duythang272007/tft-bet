@@ -2,6 +2,7 @@
 <html>
 <head>
 <title>TFT Arena</title>
+
 <style>
 
 body{
@@ -19,9 +20,17 @@ background:#00ff99;
 border:none;
 border-radius:10px;
 cursor:pointer;
+margin:10px;
+}
+
+input{
+padding:10px;
+font-size:18px;
+margin:10px;
 }
 
 </style>
+
 </head>
 
 <body>
@@ -30,10 +39,37 @@ cursor:pointer;
 
 <p>Tham gia phòng TFT - phí 20 xu</p>
 
-<button>Tạo phòng</button>
+<button onclick="createRoom()">Tạo phòng</button>
 
-<button>Tham gia phòng</button>
+<br><br>
+
+<input id="roomcode" placeholder="Nhập mã phòng">
+
+<button onclick="joinRoom()">Tham gia phòng</button>
+
+<p id="result"></p>
+
+<script>
+
+function createRoom(){
+
+let code = Math.random().toString(36).substring(2,7).toUpperCase()
+
+document.getElementById("result").innerHTML =
+"Phòng của bạn: "+code
+
+}
+
+function joinRoom(){
+
+let code = document.getElementById("roomcode").value
+
+document.getElementById("result").innerHTML =
+"Bạn đã tham gia phòng "+code
+
+}
+
+</script>
 
 </body>
-
 </html>
